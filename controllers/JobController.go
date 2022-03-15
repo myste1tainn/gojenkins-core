@@ -8,12 +8,19 @@ import (
 
 type JobController interface {
 	BuildWithParameters(req requests.BuildWithParametersRequest)
+	ConsoleText(req requests.BuildWithParametersRequest) string
 }
 
 type DefaultJobController struct {
 	ConfigLoader               config.MainYamlConfigLoader
 	BuildWithParametersService services.BuildWithParametersService
+	ConsoleTextService         services.ConsoleTextService
 }
 
 func (d DefaultJobController) BuildWithParameters(req requests.BuildWithParametersRequest) {
+	d.BuildWithParametersService.Execute(req)
+}
+
+func (d DefaultJobController) ConsoleText(req requests.ConsoleTextRequest) string {
+	return d.ConsoleTextService.Execute(req)
 }
