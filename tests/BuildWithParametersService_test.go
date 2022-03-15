@@ -56,7 +56,7 @@ func TestBuildWithParameters_givenAllOkContext_callToApiBuildWithParameters(t *t
 	if machine.IsSsl {
 		protocol = "https"
 	}
-	expected := protocol + "://" + machine.Host + ":" + strconv.Itoa(machine.Port) + "/" + jobUrl
+	expected := protocol + "://" + machine.Host + ":" + strconv.Itoa(machine.Port) + "/" + jobUrl + "/buildWithParameters"
 	if sender.SentUrl != expected {
 		t.Errorf("Expected %s, got %s", expected, sender.SentUrl)
 	}
