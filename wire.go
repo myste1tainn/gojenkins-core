@@ -1,6 +1,6 @@
-package gojenkins_core
+//+build wireinject
 
-//+build !wireinject
+package gojenkins_core
 
 import (
 	"github.com/google/wire"

@@ -8,7 +8,7 @@ import (
 
 type JobController interface {
 	BuildWithParameters(req requests.BuildWithParametersRequest)
-	ConsoleText(req requests.BuildWithParametersRequest) string
+	ConsoleText(req requests.ConsoleTextRequest) string
 }
 
 type DefaultJobController struct {

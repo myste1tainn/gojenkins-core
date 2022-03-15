@@ -3,7 +3,7 @@ package net
 import (
 	"github.com/myste1tainn/gojenkins-core/helpers"
 	"github.com/myste1tainn/gojenkins-core/models"
-	"io"
+	"io/ioutil"
 	"path"
 )
 
@@ -26,6 +26,6 @@ func (this DefaultApi) ConsoleText(jobUrl string, jobId string) string {
 	uri := path.Join(jobUrl, jobId, "consoleText")
 	resp := helpers.PanicHttpResponse(this.Http.get(uri))
 	defer helpers.Panic(resp.Body.Close())
-	data := helpers.PanicData(io.ReadAll(resp.Body))
+	data := helpers.PanicData(ioutil.ReadAll(resp.Body))
 	return string(data)
 }
