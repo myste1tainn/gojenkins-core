@@ -1,6 +1,7 @@
 package config
 
 import (
+	"github.com/myste1tainn/gojenkins-core/helpers"
 	"gopkg.in/yaml.v2"
 )
 
@@ -10,12 +11,8 @@ type MainYamlConfigLoader interface {
 	Load() MainYamlConfig
 }
 
-type FileReader interface {
-	ReadFile(path string) ([]byte, error)
-}
-
 type DefaultMainYamlConfigLoader struct {
-	FileReader FileReader
+	FileReader helpers.FileReader
 }
 
 func (this DefaultMainYamlConfigLoader) Load() MainYamlConfig {
