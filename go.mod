@@ -1,6 +1,6 @@
 module github.com/myste1tainn/gojenkins-core
 
-go 1.15
+go 1.17
 
 require (
 	github.com/google/wire v0.5.0
