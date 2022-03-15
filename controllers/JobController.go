@@ -16,4 +16,5 @@ type DefaultJobController struct {
 }
 
 func (d DefaultJobController) BuildWithParameters(req requests.BuildWithParametersRequest) {
+	d.BuildWithParametersService.Execute(req)
 }

@@ -1,4 +1,6 @@
-package main
+package gojenkins_core
+
+//+build !wireinject
 
 import (
 	"github.com/google/wire"
@@ -8,12 +10,13 @@ import (
 
 func InitializeJobController() controllers.JobController {
 	wire.Build(
-		providers.NewJobController,
 		providers.NewMainYamlConfigLoader,
 		providers.NewFileReader,
-		providers.NewBuildWithParametersService,
 		providers.NewApi,
 		providers.NewHttp,
+		providers.NewContext,
+		providers.NewBuildWithParametersService,
+		providers.NewJobController,
 	)
-	return InitializeJobController()
+	return nil
 }

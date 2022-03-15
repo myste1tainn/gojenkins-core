@@ -14,7 +14,7 @@ type DefaultHttpRequestSender struct {
 	Context models.Context
 }
 
-func (this *DefaultHttpRequestSender) Send(req *http.Request) (*http.Response, error) {
+func (this DefaultHttpRequestSender) Send(req *http.Request) (*http.Response, error) {
 	req.Header.Add("Authorization", AuthorizationValue(this.Context.User))
 	client := http.Client{}
 	return client.Do(req)
