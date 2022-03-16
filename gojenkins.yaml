@@ -1,0 +1,8 @@
+core:
+  server:
+    ssl: false
+    host: localhost
+    port: 8080
+  user:
+    username: admin
+    token: 11de8ef4252479bcc249e5e5f0504acbe0
